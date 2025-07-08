@@ -2,62 +2,48 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Invio Dati</title>
+  <title>Modulo Contatti</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background-color: #f9f9f9; }
+    form { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
+    input, textarea { width: 100%; padding: 10px; margin: 10px 0; border-radius: 4px; border: 1px solid #ccc; }
+    button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+    button:hover { background: #0056b3; }
+  </style>
 </head>
 <body>
-  <h2>Modulo invio dati</h2>
-  <form id="form">
-    <label>Nome:<br>
-      <input type="text" name="nome" required>
-    </label><br><br>
-
-    <label>Cognome:<br>
-      <input type="text" name="cognome" required>
-    </label><br><br>
-
-    <label>Email:<br>
-      <input type="email" name="email" required>
-    </label><br><br>
-
-    <label>Messaggio:<br>
-      <textarea name="messaggio" rows="4"></textarea>
-    </label><br><br>
-
+  <h2>Contattaci</h2>
+  <form id="myForm">
+    <input type="text" id="nome" name="nome" placeholder="Nome" required>
+    <input type="text" id="cognome" name="cognome" placeholder="Cognome" required>
+    <input type="email" id="email" name="email" placeholder="Email" required>
+    <textarea id="messaggio" name="messaggio" placeholder="Il tuo messaggio" rows="5" required></textarea>
     <button type="submit">Invia</button>
   </form>
 
-  <p id="risultato"></p>
-
   <script>
-    const form = document.getElementById('form');
-    const risultato = document.getElementById('risultato');
-
-    form.addEventListener('submit', async (e) => {
+    document.getElementById("myForm").addEventListener("submit", function(e) {
       e.preventDefault();
-
-      const dati = {
-        nome: form.nome.value,
-        cognome: form.cognome.value,
-        email: form.email.value,
-        messaggio: form.messaggio.value
-      };
-
-      try {
-        const res = await fetch('https://eae8c5e6-7112-4451-84f0-f4e5327fc9a0-00-fyv3krcfcf6s.janeway.replit.dev/invia_dati_google_sheet', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(dati)
-        });
-
-        if (res.ok) {
-          risultato.textContent = "✅ Dati inviati con successo!";
-          form.reset();
-        } else {
-          risultato.textContent = "❌ Errore durante l'invio.";
-        }
-      } catch (err) {
-        risultato.textContent = "❌ Errore di connessione.";
-      }
+      fetch("https://script.google.com/macros/s/AKfycbz6NrsP0FzhjRiJ9jNBg7v1vmlDSjp7aXQWApAnDOKMgSwWJVstB3ymbOkE4Q-4O9_p/exec", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          nome: document.getElementById("nome").value,
+          cognome: document.getElementById("cognome").value,
+          email: document.getElementById("email").value,
+          messaggio: document.getElementById("messaggio").value
+        })
+      })
+      .then(response => {
+        alert("Messaggio inviato con successo!");
+        document.getElementById("myForm").reset();
+      })
+      .catch(error => {
+        alert("Errore nell'invio. Riprova.");
+        console.error(error);
+      });
     });
   </script>
 </body>

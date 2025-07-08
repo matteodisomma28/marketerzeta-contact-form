@@ -88,7 +88,7 @@
       data.data = new Date().toLocaleString(); // aggiunge la data/ora invio
 
       try {
-        const response = await fetch("https://hooks.zapier.com/hooks/catch/23708818/u3au0mr/", {
+        const response = await fetch("https://hooks.zapier.com/hooks/catch/23708818/u3au0mr", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data)

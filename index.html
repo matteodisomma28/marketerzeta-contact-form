@@ -3,66 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contattaci</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f7f8;
-      color: #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .container {
-      background: white;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 500px;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    input, textarea, button {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-sizing: border-box;
-      font-size: 16px;
-    }
-
-    button {
-      background-color: #0051ba;
-      color: white;
-      border: none;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    button:hover {
-      background-color: #003d8f;
-    }
-  </style>
+  <title>Modulo Contatti</title>
 </head>
 <body>
-  <div class="container">
-    <h2>Contattaci</h2>
-    <form action="https://hooks.zapier.com/hooks/catch/23708818/u3au0mr" method="POST">
-      <input type="text" name="nome" placeholder="Nome" required>
-      <input type="text" name="cognome" placeholder="Cognome" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <textarea name="messaggio" placeholder="Messaggio" rows="5" required></textarea>
-      <button type="submit">Invia</button>
-    </form>
-  </div>
+  <h1>Contattaci</h1>
+  <form action="https://hooks.zapier.com/hooks/catch/23708818/u3au0mr/" method="POST">
+    <input type="text" name="nome" placeholder="Nome" required><br><br>
+    <input type="text" name="cognome" placeholder="Cognome" required><br><br>
+    <input type="email" name="email" placeholder="Email" required><br><br>
+    <textarea name="messaggio" placeholder="Messaggio" rows="5" required></textarea><br><br>
+    <button type="submit">Invia</button>
+  </form>
 </body>
 </html>
+

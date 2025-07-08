@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Invio Dati</title>
+</head>
+<body>
+  <h2>Modulo invio dati</h2>
+  <form id="form">
+    <label>Nome:<br>
+      <input type="text" name="nome" required>
+    </label><br><br>
+
+    <label>Cognome:<br>
+      <input type="text" name="cognome" required>
+    </label><br><br>
+
+    <label>Email:<br>
+      <input type="email" name="email" required>
+    </label><br><br>
+
+    <label>Messaggio:<br>
+      <textarea name="messaggio" rows="4"></textarea>
+    </label><br><br>
+
+    <button type="submit">Invia</button>
+  </form>
+
+  <p id="risultato"></p>
+
+  <script>
+    const form = document.getElementById('form');
+    const risultato = document.getElementById('risultato');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const dati = {
+        nome: form.nome.value,
+        cognome: form.cognome.value,
+        email: form.email.value,
+        messaggio: form.messaggio.value
+      };
+
+      try {
+        const res = await fetch('https://eae8c5e6-7112-4451-84f0-f4e5327fc9a0-00-fyv3krcfcf6s.janeway.replit.dev/invia_dati_google_sheet', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(dati)
+        });
+
+        if (res.ok) {
+          risultato.textContent = "✅ Dati inviati con successo!";
+          form.reset();
+        } else {
+          risultato.textContent = "❌ Errore durante l'invio.";
+        }
+      } catch (err) {
+        risultato.textContent = "❌ Errore di connessione.";
+      }
+    });
+  </script>
+</body>
+</html>

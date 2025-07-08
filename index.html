@@ -1,27 +1,8 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8" />
-  <title>Modulo Contatti</title>
-  <style>
-    body { font-family: Arial; padding: 20px; background-color: #f9f9f9; }
-    form { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 8px; }
-    input, textarea { width: 100%; padding: 10px; margin: 10px 0; border-radius: 4px; border: 1px solid #ccc; }
-    button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
-    button:hover { background: #0056b3; }
-  </style>
-</head>
-<body>
-
-  <h2>Contattaci</h2>
-  <form action="https://formspree.io/f/xyzjqnrz" method="POST">
-    <input type="text" name="nome" placeholder="Nome" required>
-    <input type="text" name="cognome" placeholder="Cognome" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <textarea name="messaggio" placeholder="Il tuo messaggio" rows="5" required></textarea>
-    <button type="submit">Invia</button>
-  </form>
-
-</body>
-</html>
+<form action="https://formspree.io/f/xyzjqnrz" method="POST">
+  <input type="text" name="nome" placeholder="Nome" required>
+  <input type="text" name="cognome" placeholder="Cognome" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <textarea name="messaggio" placeholder="Messaggio" rows="5" required></textarea>
+  <button type="submit">Invia</button>
+</form>
 

@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contattaci</title>
+  <title>Modulo Contatti</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f0f4f8;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8f9fa;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -16,43 +16,39 @@
     }
 
     .container {
-      background-color: white;
-      padding: 30px 40px;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
       width: 100%;
-      max-width: 500px;
+      max-width: 400px;
     }
 
     h1 {
       text-align: center;
       margin-bottom: 20px;
-      color: #333;
+      color: #003366;
     }
 
-    input, textarea {
+    input, textarea, button {
       width: 100%;
-      padding: 12px 15px;
-      margin: 10px 0;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 6px;
       border: 1px solid #ccc;
-      border-radius: 8px;
       font-size: 16px;
     }
 
     button {
-      width: 100%;
-      padding: 12px;
-      background-color: #0057b8;
+      background-color: #003366;
       color: white;
       border: none;
-      border-radius: 8px;
-      font-size: 16px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.2s;
     }
 
     button:hover {
-      background-color: #004a9f;
+      background-color: #0055aa;
     }
   </style>
 </head>
@@ -60,9 +56,9 @@
   <div class="container">
     <h1>Contattaci</h1>
     <form action="https://hooks.zapier.com/hooks/catch/23708818/u3au0mr/" method="POST">
-      <input type="text" name="nome" placeholder="Nome" required />
-      <input type="text" name="cognome" placeholder="Cognome" required />
-      <input type="email" name="email" placeholder="Email" required />
+      <input type="text" name="nome" placeholder="Nome" required>
+      <input type="text" name="cognome" placeholder="Cognome" required>
+      <input type="email" name="email" placeholder="Email" required>
       <textarea name="messaggio" placeholder="Messaggio" rows="5" required></textarea>
       <button type="submit">Invia</button>
     </form>

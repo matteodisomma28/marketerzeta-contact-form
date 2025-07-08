@@ -3,17 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modulo Contatti</title>
+  <title>Contattaci</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0057b8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #004a9f;
+    }
+  </style>
 </head>
 <body>
-  <h1>Contattaci</h1>
-  <form action="https://hooks.zapier.com/hooks/catch/23708818/u3au0mr/" method="POST">
-    <input type="text" name="nome" placeholder="Nome" required><br><br>
-    <input type="text" name="cognome" placeholder="Cognome" required><br><br>
-    <input type="email" name="email" placeholder="Email" required><br><br>
-    <textarea name="messaggio" placeholder="Messaggio" rows="5" required></textarea><br><br>
-    <button type="submit">Invia</button>
-  </form>
+  <div class="container">
+    <h1>Contattaci</h1>
+    <form action="https://hooks.zapier.com/hooks/catch/23708818/u3au0mr/" method="POST">
+      <input type="text" name="nome" placeholder="Nome" required />
+      <input type="text" name="cognome" placeholder="Cognome" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <textarea name="messaggio" placeholder="Messaggio" rows="5" required></textarea>
+      <button type="submit">Invia</button>
+    </form>
+  </div>
 </body>
 </html>
-

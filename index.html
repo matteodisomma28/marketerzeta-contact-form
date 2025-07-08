@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Modulo Contatti</title>
   <style>
     body { font-family: Arial; padding: 20px; background-color: #f9f9f9; }
@@ -12,39 +12,16 @@
   </style>
 </head>
 <body>
+
   <h2>Contattaci</h2>
-  <form id="myForm">
-    <input type="text" id="nome" name="nome" placeholder="Nome" required>
-    <input type="text" id="cognome" name="cognome" placeholder="Cognome" required>
-    <input type="email" id="email" name="email" placeholder="Email" required>
-    <textarea id="messaggio" name="messaggio" placeholder="Il tuo messaggio" rows="5" required></textarea>
+  <form action="https://formspree.io/f/xyzjqnrz" method="POST">
+    <input type="text" name="nome" placeholder="Nome" required>
+    <input type="text" name="cognome" placeholder="Cognome" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="messaggio" placeholder="Il tuo messaggio" rows="5" required></textarea>
     <button type="submit">Invia</button>
   </form>
 
-  <script>
-    document.getElementById("myForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      fetch("https://script.google.com/macros/s/AKfycbxgwM8I7tzngPw1VcYYKQiB511Wk_zzuNNdi8TFeMpPR7hrTPz7Thyl6De7gU8562dO/exec", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          nome: document.getElementById("nome").value,
-          cognome: document.getElementById("cognome").value,
-          email: document.getElementById("email").value,
-          messaggio: document.getElementById("messaggio").value
-        })
-      })
-      .then(response => {
-        alert("Messaggio inviato con successo!");
-        document.getElementById("myForm").reset();
-      })
-      .catch(error => {
-        alert("Errore nell'invio. Riprova.");
-        console.error(error);
-      });
-    });
-  </script>
 </body>
 </html>
+

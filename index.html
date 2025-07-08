@@ -2,19 +2,109 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Modulo Contatti</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f4f4f4;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      background: #007BFF;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .message {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      border-radius: 6px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <h1>Contattaci</h1>
-  <form action="https://hooks.zapier.com/hooks/catch/23708818/u3au0mr" method="POST">
+  <div class="container">
+    <h1>Contattaci</h1>
+    <form id="contactForm">
+      <input type="text" name="nome" placeholder="Nome" required>
+      <input type="text" name="cognome" placeholder="Cognome" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="messaggio" placeholder="Messaggio" rows="5" required></textarea>
+      <button type="submit">Invia</button>
+    </form>
+    <div class="message" id="thankYouMessage">✅ Grazie! Il tuo messaggio è stato inviato con successo.</div>
+  </div>
 
-    <input type="text" name="nome" placeholder="Nome" required><br><br>
-    <input type="text" name="cognome" placeholder="Cognome" required><br><br>
-    <input type="email" name="email" placeholder="Email" required><br><br>
-    <textarea name="messaggio" placeholder="Messaggio" rows="5" required></textarea><br><br>
-    <button type="submit">Invia</button>
-  </form>
+  <script>
+    const form = document.getElementById('contactForm');
+    const message = document.getElementById('thankYouMessage');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      data.data = new Date().toLocaleString(); // aggiunge la data/ora invio
+
+      try {
+        const response = await fetch("https://hooks.zapier.com/hooks/catch/23708818/u3au0mr/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          form.reset();
+          message.style.display = "block";
+        } else {
+          alert("Errore nell'invio. Riprova.");
+        }
+      } catch (error) {
+        alert("Errore di rete. Controlla la connessione.");
+      }
+    });
+  </script>
 </body>
 </html>
 
